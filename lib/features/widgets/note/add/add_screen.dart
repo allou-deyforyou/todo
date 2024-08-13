@@ -110,7 +110,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           id: task.id!,
         );
       }
-
       context.pop(task);
     }
   }

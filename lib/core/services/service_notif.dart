@@ -55,7 +55,7 @@ class NotificationService {
     );
 
     if (dateTime != null) {
-      if (DateTime.now().isBefore(dateTime) || (HiveConfig.notifications != null && HiveConfig.notifications!)) return;
+      if (DateTime.now().isAfter(dateTime) || HiveConfig.notifications == null || !HiveConfig.notifications!) return;
 
       final zone = await FlutterTimezone.getLocalTimezone();
       final scheduledDate = tz.TZDateTime.from(dateTime, tz.getLocation(zone));

@@ -246,24 +246,28 @@ class AddTaskCreateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.theme;
     final localizations = context.localizations;
-    return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: 300.0,
-        child: FilledButton(
-          style: FilledButton.styleFrom(
-            foregroundColor: theme.colorScheme.surface,
-            backgroundColor: theme.colorScheme.onSurface,
-            textStyle: theme.textTheme.titleLarge!.copyWith(
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.0,
-              fontSize: 14.0,
-              height: 1.0,
+    return SafeArea(
+      top: false,
+      minimum: kMaterialListPadding,
+      child: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: 300.0,
+          child: FilledButton(
+            style: FilledButton.styleFrom(
+              foregroundColor: theme.colorScheme.surface,
+              backgroundColor: theme.colorScheme.onSurface,
+              textStyle: theme.textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.0,
+                fontSize: 14.0,
+                height: 1.0,
+              ),
             ),
+            onPressed: onPressed,
+            child: child ?? Text(localizations.addtask.toUpperCase()),
           ),
-          onPressed: onPressed,
-          child: child ?? Text(localizations.addtask.toUpperCase()),
         ),
       ),
     );
@@ -282,24 +286,28 @@ class AddTaskUpdateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.theme;
     final localizations = context.localizations;
-    return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: 300.0,
-        child: FilledButton(
-          style: FilledButton.styleFrom(
-            foregroundColor: theme.colorScheme.surface,
-            backgroundColor: theme.colorScheme.onSurface,
-            textStyle: theme.textTheme.titleLarge!.copyWith(
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.0,
-              fontSize: 14.0,
-              height: 1.0,
+    return SafeArea(
+      top: false,
+      minimum: kMaterialListPadding,
+      child: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: 300.0,
+          child: FilledButton(
+            style: FilledButton.styleFrom(
+              foregroundColor: theme.colorScheme.surface,
+              backgroundColor: theme.colorScheme.onSurface,
+              textStyle: theme.textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.0,
+                fontSize: 14.0,
+                height: 1.0,
+              ),
             ),
+            onPressed: onPressed,
+            child: child ?? Text(localizations.edittask.toUpperCase()),
           ),
-          onPressed: onPressed,
-          child: child ?? Text(localizations.edittask.toUpperCase()),
         ),
       ),
     );

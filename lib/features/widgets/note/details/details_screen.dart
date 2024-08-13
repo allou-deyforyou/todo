@@ -140,9 +140,13 @@ class _DetailsTaskScreenState extends State<DetailsTaskScreen> {
                     child = const CupertinoActivityIndicator();
                     onPressed = null;
                   }
-                  return DetailsTaskDeleteButton(
-                    onPressed: onPressed,
-                    child: child,
+                  return SafeArea(
+                    top: false,
+                    minimum: kMaterialListPadding,
+                    child: DetailsTaskDeleteButton(
+                      onPressed: onPressed,
+                      child: child,
+                    ),
                   );
                 },
               ),

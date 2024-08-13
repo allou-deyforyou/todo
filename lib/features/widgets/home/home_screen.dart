@@ -11,6 +11,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   /// [Assets]
 
+  int _sortTask(Task a, Task b) {
+    return a.deadline.compareTo(b.deadline);
+  }
+
   void _requestNotificationPermission() {
     if (HiveConfig.notifications == null) {
       Permission.notification
@@ -148,6 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         builder: (context, child) {
                           final currentIndex = controller.index;
                           final taskList = _taskGroupList[currentIndex];
+                          taskList.sort(_sortTask);
                           return SliverMainAxisGroup(
                             slivers: [
                               SliverPinnedHeader(
