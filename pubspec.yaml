@@ -1,0 +1,96 @@
+name: todo
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Assets
+  flutter_localizations:
+    sdk: flutter
+  flutter_timezone:
+  cupertino_icons:
+  equatable:
+  go_router:
+  timezone:
+  intl:
+  # Widgets
+  sliver_tools:
+  # Services
+  flutter_local_notifications:
+  permission_handler:
+  isar_flutter_libs:
+  path_provider:
+  hive_flutter:
+  flutter_bloc:
+  hive:
+  isar: 
+  bloc:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Assets
+  flutter_launcher_icons:
+  flutter_native_splash:
+  flutter_lints:
+  build_runner:
+  build:
+  # Services
+  isar_generator: 
+
+flutter_native_splash:
+  color: "#ffffff"
+  color_dark: "#000000"
+  image: assets/images/todo_dark.png
+  image_dark: assets/images/todo_light.png
+  android_12:
+    color: "#ffffff"
+    color_dark: "#000000"
+    image: assets/images/todo_splash_logo_dark.png
+    image_dark: assets/images/todo_splash_logo.png
+
+flutter_launcher_icons:
+  ios: true
+  remove_alpha_ios: true
+  android: "ic_launcher"
+  image_path_ios: assets/images/todo_ios_logo.png
+  image_path_android: assets/images/todo_logo.png
+
+
+flutter_gen:
+  output: lib/assets/gen/
+  line_length: 80
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Gilroy-UltraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Gilroy-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Gilroy-Medium.ttf
+          weight: 400
+        - asset: assets/fonts/Gilroy-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/Gilroy-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Gilroy-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Gilroy-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Gilroy-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Gilroy-Heavy.ttf

@@ -1,0 +1,65 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def flutterProperties = new Properties()
+def flutterPropertiesFile = rootProject.file('flutter.properties')
+if (flutterPropertiesFile.exists()) {
+    flutterPropertiesFile.withReader('UTF-8') { reader ->
+        flutterProperties.load(reader)
+    }
+}
+
+def flutterMinSdkVersion = flutterProperties.getProperty('flutter.minSdkVersion')
+if (flutterMinSdkVersion == null) {
+    flutterMinSdkVersion = '16'
+}
+
+def flutterTargetSdkVersion = flutterProperties.getProperty('flutter.targetSdkVersion')
+if (flutterTargetSdkVersion == null) {
+    flutterTargetSdkVersion = '31'
+}
+
+def flutterCompileSdkVersion = flutterProperties.getProperty('flutter.compileSdkVersion')
+if (flutterCompileSdkVersion == null) {
+    flutterCompileSdkVersion = '31'
+}
+
+android {
+    namespace = "com.djamo.todo"
+    compileSdk = flutterCompileSdkVersion.toInteger()
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.djamo.todo"
+        targetSdk = flutterTargetSdkVersion.toInteger()
+        minSdk = flutterMinSdkVersion.toInteger()
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName             
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}

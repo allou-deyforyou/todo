@@ -1,0 +1,85 @@
+{
+    "stay": "stay",
+    "leave": "leave",
+    "cancel": "cancel",
+    "delete": "delete",
+    "confirm": "confirm",
+    "title": "title",
+    "requiredTitle": "title is required",
+    "countTitle": "the number of characters must be greater than 2",
+    "titleHint": "Ex: Purchase of furniture",
+    "description": "description",
+    "descriptionHint": "describe the task to be done...",
+    "date": "date",
+    "dateHint": "Ex: Today",
+    "high": "high",
+    "normal": "normal",
+    "low": "low",
+    "todo": "to do",
+    "done": "done",
+    "createtasktodo": "create task to do",
+    "addtask": "add task",
+    "addtasks": "add tasks",
+    "notasks": "no tasks to do",
+    "taskdetails": "task details",
+    "edittask": "edit task",
+    "deletetask": "delete task",
+    "deletetaskQuestion": "delete task?",
+    "deletetaskMessage": "deletion will result in permanent loss of the task and all its data.",
+    "deletealltasks": "delete all tasks",
+    "deletealltasksQuestion": "delete all tasks?",
+    "deletealltasksMessage": "deletion will result in permanent loss of all tasks and all their data.",
+    "leavePageQuestion": "leave page?",
+    "leavePageMessage": "all changes will be lost.",
+    "settings": "settings",
+    "language": "language",
+    "ok": "ok",
+    "theme": "theme",
+    "themeDark": "dark",
+    "themeLight": "light",
+    "themeSystem": "system",
+    "notifications": "notifications",
+    "enablenotification": "enable notification",
+    "enablenotificationmessage": "enabling notification is required to use the MonPoint app. Please enable it to continue.",
+    "opennotificationmessage": "enabling notification is required to use the MonPoint app. Please enable notification in your device settings.",
+    "opensettings": "open settings",
+    "reminder": "reminder",
+    "taskreminder": "you have a task to do « {name} ».",
+    "@taskreminder": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "taskcreated": "the « {name} » task has been successfully created",
+    "@taskcreated": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "taskedited": "the « {name} » task has been successfully edited",
+    "@taskedited": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "taskdeleted": "the « {name} » task has been successfully deleted",
+    "@taskdeleted": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "alltasksdeleted": "all tasks have been successfully deleted"
+
+}

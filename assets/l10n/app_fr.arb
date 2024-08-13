@@ -1,0 +1,84 @@
+{
+    "stay": "rester",
+    "leave": "quitter",
+    "cancel": "annuler",
+    "delete": "supprimer",
+    "confirm": "confirmer",
+    "title": "titre",
+    "requiredTitle": "le titre est requis",
+    "countTitle": "le nombre de caractères doit être supérieur à 2",
+    "titleHint": "Ex: Achat des meubles",
+    "description": "description",
+    "descriptionHint": "décrivez la tâche à faire...",
+    "date": "date",
+    "dateHint": "Ex: Aujourd'hui",
+    "high": "très importante",
+    "normal": "normale",
+    "low": "pas importante",
+    "todo": "à faire",
+    "done": "terminé",
+    "createtasktodo": "créer une tâche à faire",
+    "addtask": "ajouter la tâche",
+    "addtasks": "ajouter des tâches",
+    "notasks": "aucune tâche à faire",
+    "taskdetails": "détails de la tâche",
+    "edittask": "modifier la tâche",
+    "deletetask": "supprimer la tâche",
+    "deletetaskQuestion": "supprimer la tâche ?",
+    "deletetaskMessage": "la suppression entraînera la perte définitive de la tâche et de toutes ses données.",
+    "deletealltasks": "supprimer toutes les tâches",
+    "deletealltasksQuestion": "supprimer toutes les tâches ?",
+    "deletealltasksMessage": "la suppression entraînera la perte définitive de toutes les tâches et de toutes leurs données.",
+    "leavePageQuestion": "quitter la page ?",
+    "leavePageMessage": "toutes les modifications seront perdues.",
+    "settings": "paramètres",
+    "language": "langage",
+    "ok": "d'accord",
+    "theme": "thème",
+    "themeDark": "sombre",
+    "themeLight": "clair",
+    "themeSystem": "système",
+    "notifications": "notifications",
+    "enablenotification": "activer la notification",
+    "enablenotificationmessage": "l'activation de la notification est requise pour utiliser l'application MonPoint. Veuillez l'activer pour continuer.",
+    "opennotificationmessage": "l'activation de la notification est requise pour utiliser l'application MonPoint. Veuillez activer la notification dans les paramètres de votre appareil.",
+    "opensettings": "ouvrir les paramètres",
+    "reminder": "rappel",
+    "taskreminder": "vous avez une tâche  à faire « {name} ».",
+    "@taskreminder": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "taskcreated": "la tâche « {name} » a été créée avec succès",
+    "@taskcreated": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "taskedited": "la tâche « {name} » a été modifiée avec succès",
+    "@taskedited": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "taskdeleted": "la tâche « {name} » a été supprimée avec succès",
+    "@taskdeleted": {
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Acheter des meubles"
+            }
+        }
+    },
+    "alltasksdeleted": "toutes les tâches ont été supprimées avec succès"
+}
