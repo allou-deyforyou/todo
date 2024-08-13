@@ -18,6 +18,7 @@ class AddTaskScreen extends StatefulWidget {
 class _AddTaskScreenState extends State<AddTaskScreen> {
   /// [Assets]
   late final GlobalKey<FormState> _formKey;
+  late ScrollController _scrollController;
 
   late final Task? _task;
 
@@ -164,6 +165,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    _scrollController = PrimaryScrollController.of(context);
+  }
+
+  @override
   void dispose() {
     /// [Assets]
     _priorityController.dispose();
@@ -196,54 +204,60 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 Expanded(
                   child: Form(
                     key: _formKey,
-                    child: CustomScrollView(
-                      slivers: [
-                        if (_task != null) const AddTaskUpdateSliverAppBar() else const AddTaskSliverAppBar(),
-                        AddTaskSliverWrapper(
-                          sliver: SliverMainAxisGroup(
-                            slivers: [
-                              SliverToBoxAdapter(
-                                child: ValueListenableBuilder(
-                                  valueListenable: _priorityController,
-                                  builder: (context, priority, child) {
-                                    return AddTaskPrioritySegmentedButton(
-                                      segments: List.of(Priority.values.map((item) => item.buttonSegment(context))),
-                                      selectedBackgroundColor: priority.color(context),
-                                      onChanged: _onPriorityChanged(priority),
-                                      selected: priority,
-                                    );
-                                  },
+                    child: CupertinoScrollbar(
+                      thumbVisibility: true,
+                      controller: _scrollController,
+                      child: CustomScrollView(
+                        controller: _scrollController,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                        slivers: [
+                          if (_task != null) const AddTaskUpdateSliverAppBar() else const AddTaskSliverAppBar(),
+                          AddTaskSliverWrapper(
+                            sliver: SliverMainAxisGroup(
+                              slivers: [
+                                SliverToBoxAdapter(
+                                  child: ValueListenableBuilder(
+                                    valueListenable: _priorityController,
+                                    builder: (context, priority, child) {
+                                      return AddTaskPrioritySegmentedButton(
+                                        segments: List.of(Priority.values.map((item) => item.buttonSegment(context))),
+                                        selectedBackgroundColor: priority.color(context),
+                                        onChanged: _onPriorityChanged(priority),
+                                        selected: priority,
+                                      );
+                                    },
+                                  ),
                                 ),
-                              ),
-                              sliverSpace,
-                              SliverToBoxAdapter(
-                                child: AddTaskTitleTextField(
-                                  controller: _titleController,
+                                sliverSpace,
+                                SliverToBoxAdapter(
+                                  child: AddTaskTitleTextField(
+                                    controller: _titleController,
+                                  ),
                                 ),
-                              ),
-                              sliverSpace,
-                              SliverToBoxAdapter(
-                                child: AddTaskDescriptionTextField(
-                                  controller: _descriptionController,
+                                sliverSpace,
+                                SliverToBoxAdapter(
+                                  child: AddTaskDescriptionTextField(
+                                    controller: _descriptionController,
+                                  ),
                                 ),
-                              ),
-                              sliverSpace,
-                              SliverToBoxAdapter(
-                                child: ValueListenableBuilder(
-                                  valueListenable: _deadlineController,
-                                  builder: (context, deadline, child) {
-                                    return AddTaskDateTextField(
-                                      onTap: _onDeadlineChanged(deadline),
-                                      initialValue: deadline?.format,
-                                      key: ValueKey(deadline),
-                                    );
-                                  },
+                                sliverSpace,
+                                SliverToBoxAdapter(
+                                  child: ValueListenableBuilder(
+                                    valueListenable: _deadlineController,
+                                    builder: (context, deadline, child) {
+                                      return AddTaskDateTextField(
+                                        onTap: _onDeadlineChanged(deadline),
+                                        initialValue: deadline?.format,
+                                        key: ValueKey(deadline),
+                                      );
+                                    },
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
