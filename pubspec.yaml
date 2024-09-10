@@ -8,6 +8,8 @@ version: 1.0.0+1
 environment:
   sdk: ^3.5.0
 
+isar_version: &isar_version 3.1.8
+
 dependencies:
   flutter:
     sdk: flutter
@@ -25,13 +27,18 @@ dependencies:
   # Services
   flutter_local_notifications:
   permission_handler:
-  isar_flutter_libs:
   path_provider:
   hive_flutter:
   flutter_bloc:
   hive:
-  isar: 
   bloc:
+
+  isar: 
+    version: *isar_version
+    hosted: https://pub.isar-community.dev/
+  isar_flutter_libs: # contains Isar Core
+    version: *isar_version
+    hosted: https://pub.isar-community.dev/
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +51,8 @@ dev_dependencies:
   build:
   # Services
   isar_generator: 
+    version: *isar_version
+    hosted: https://pub.isar-community.dev/
 
 flutter_native_splash:
   color: "#ffffff"
