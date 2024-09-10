@@ -21,9 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
           .onGrantedCallback(
             () => HiveConfig.notifications = true,
           )
-          .onDeniedCallback(
-            () => showNotificationWarningModal(context: context),
-          )
+          .onDeniedCallback(() {
+            if (mounted) {
+              showNotificationWarningModal(context: context);
+            }
+          })
           .onPermanentlyDeniedCallback(
             () => HiveConfig.notifications = false,
           )
@@ -60,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _listenTaskIsarState(BuildContext context, BlocState state) {
     if (state case SuccessState<LoadListTaskIsarEvent, List<Task>>(:final data)) {
+      data.sort(_sortTask);
       _taskGroupList = data.group((a, b) => DateUtils.dateOnly(a.deadline).isAtSameMomentAs(DateUtils.dateOnly(b.deadline)));
     } else if (state case SuccessState<PutTaskIsarEvent, List<Task>>(:final data)) {
       final task = data.first;
@@ -152,7 +155,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         builder: (context, child) {
                           final currentIndex = controller.index;
                           final taskList = _taskGroupList[currentIndex];
-                          taskList.sort(_sortTask);
                           return SliverMainAxisGroup(
                             slivers: [
                               SliverPinnedHeader(
