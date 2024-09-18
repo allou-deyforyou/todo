@@ -23,17 +23,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   ValueChanged<bool>? _onTapNotifs() {
     return (value) {
       if (value) {
-        Permission.notification
-            .onGrantedCallback(
-              () => HiveConfig.notifications = true,
-            )
-            .onDeniedCallback(
-              () => showNotificationWarningModal(context: context),
-            )
-            .onPermanentlyDeniedCallback(
-              () => showNotificationPermissionModal(context: context),
-            )
-            .request();
+        Permission.notification.onGrantedCallback(() {
+          HiveConfig.notifications = true;
+        }).onDeniedCallback(() {
+          if (mounted) {
+            showNotificationWarningModal(context: context);
+          }
+        }).onPermanentlyDeniedCallback(() {
+          if (mounted) {
+            showNotificationPermissionModal(context: context);
+          }
+        }).request();
       } else {
         NotificationService.cancelNotification();
         HiveConfig.notifications = false;
